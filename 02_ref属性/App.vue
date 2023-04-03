@@ -1,8 +1,10 @@
 <template>
     <div class="app">
-        <h2 v-text="appTitle"></h2>
-<!--        v-bind代表传入的是表达式，18会被解析为Number，而不是String-->
-        <SchoolVue name="sherlock" :age="18" />
+        <!--        ref:用来给元素或子组件注册信息-->
+        <h2 v-text="appTitle" ref="title"></h2>
+        <SchoolVue ref="schoolVue"/>
+        <SchoolVue/>
+        <button @click="showDOM" ref="btn">getDocument</button>
     </div>
 </template>
 
@@ -16,7 +18,7 @@ export default {
     },
     data() {
         return {
-            appTitle: "h2  v-text title"
+            appTitle: "v-text title"
         }
     }
 }
