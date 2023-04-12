@@ -2,27 +2,24 @@
     <div class="school">
         <h3>{{ name }}</h3>
         <h3>{{ addr }}</h3>
-        <button @click="schoolName">点击</button>
+        <button @click="showName">button</button>
         <hr>
     </div>
 </template>
 
 <script>
+// 引入多个
+import {myMixIn, myMixIn2} from "@/mixin";
+
 export default {
     name: "SchoolVue",
-    props: ['getSchoolName'],
     data() {
         return {
             name: 'chocolate school',
-            addr: '上海市'
+            addr: 'asdfadikugbf'
         }
     },
-    methods: {
-        schoolName() {
-            this.getSchoolName(this.name)
-        }
-    }
-
+    mixins: [myMixIn, myMixIn2]
 }
 </script>
 

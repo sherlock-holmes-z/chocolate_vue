@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SessionStorage</title>
+</head>
+<body>
+<button onclick="addStorage()">add</button>
+<button onclick="getStorage()">get</button>
+<button onclick="removeStorage()">remove</button>
+<button onclick="removeAllStorage()">removeAll</button>
+
+<script type="application/javascript">
+    function addStorage() {
+        sessionStorage.setItem('key1', 'value')
+        sessionStorage.setItem('key2', 123)
+        const p = {'name': 'zhang san', 'age': 18}
+        sessionStorage.setItem('person', JSON.stringify(p))
+    }
+
+    function getStorage() {
+        console.log(sessionStorage.getItem('key1'))
+        console.log(sessionStorage.getItem('key2'))
+
+        // 直接获取的为字符串
+        const p = sessionStorage.getItem('person')
+        console.log(JSON.parse(p))
+    }
+
+    function removeStorage() {
+        sessionStorage.removeItem('key1')
+    }
+
+    function removeAllStorage() {
+        sessionStorage.clear()
+    }
+</script>
+</body>
+</html>

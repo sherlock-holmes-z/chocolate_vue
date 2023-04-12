@@ -1,8 +1,8 @@
 <template>
     <div class="school">
-        <h3>{{ name }}</h3>
-        <h3>{{ addr }}</h3>
-        <button @click="schoolName">点击</button>
+        <h3>{{ name | mySlice }}</h3>
+        <h3 class="redText">{{ addr }}</h3>
+        <input type="text" v-fbind="name" >
         <hr>
     </div>
 </template>
@@ -10,19 +10,12 @@
 <script>
 export default {
     name: "SchoolVue",
-    props: ['getSchoolName'],
     data() {
         return {
             name: 'chocolate school',
-            addr: '上海市'
-        }
-    },
-    methods: {
-        schoolName() {
-            this.getSchoolName(this.name)
+            addr: 'asdfadikugbf'
         }
     }
-
 }
 </script>
 

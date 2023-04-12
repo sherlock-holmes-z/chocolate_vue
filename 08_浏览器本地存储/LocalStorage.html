@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LocalStorage</title>
+</head>
+<body>
+<button onclick="addStorage()">add</button>
+<button onclick="getStorage()">get</button>
+<button onclick="removeStorage()">remove</button>
+<button onclick="removeAllStorage()">removeAll</button>
+
+<script type="application/javascript">
+    function addStorage() {
+        localStorage.setItem('key1', 'value')
+        localStorage.setItem('key2', 123)
+        const p = {'name': 'zhang san', 'age': 18}
+        localStorage.setItem('person', JSON.stringify(p))
+    }
+
+    function getStorage() {
+        console.log(localStorage.getItem('key1'))
+        console.log(localStorage.getItem('key2'))
+
+        // 直接获取的为字符串
+        const p = localStorage.getItem('person')
+        console.log(JSON.parse(p))
+    }
+
+    function removeStorage() {
+        localStorage.removeItem('key1')
+    }
+
+    function removeAllStorage() {
+        localStorage.clear()
+    }
+</script>
+</body>
+</html>
