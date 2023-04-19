@@ -2,12 +2,13 @@
     <div class="student">
         <h3>{{ name }}</h3>
         <h3>{{ age }}</h3>
-        <button @click="getStudentName">点击</button>
+        <button @click="sendName">sendStudentName</button>
         <hr>
     </div>
 </template>
 
 <script>
+import pubsub from 'pubsub-js'
 
 export default {
     name: "StudentVue",
@@ -18,9 +19,8 @@ export default {
         }
     },
     methods: {
-        getStudentName() {
-            // 触发Student组件实例身上的studentEvent事件
-            this.$emit('studentEvent', this.name)
+        sendName() {
+            pubsub.publish('hello', this.name)
         }
     }
 }

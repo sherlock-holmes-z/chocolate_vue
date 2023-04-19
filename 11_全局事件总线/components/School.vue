@@ -2,7 +2,6 @@
     <div class="school">
         <h3>{{ name }}</h3>
         <h3>{{ addr }}</h3>
-        <button @click="schoolName">点击</button>
         <hr>
     </div>
 </template>
@@ -10,17 +9,19 @@
 <script>
 export default {
     name: "SchoolVue",
-    props: ['getSchoolName'],
     data() {
         return {
             name: 'chocolate school',
             addr: '上海市'
         }
     },
-    methods: {
-        schoolName() {
-            this.getSchoolName(this.name)
-        }
+    mounted() {
+        this.$bus.$on('sendStudentName', (studentName) => {
+            console.log('@@School:' + studentName)
+        })
+    },
+    beforeDestroy() {
+        this.$bus.$off('sendStudentName')
     }
 
 }
