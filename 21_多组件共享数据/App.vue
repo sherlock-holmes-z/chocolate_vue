@@ -11,10 +11,9 @@
 import NumVue from "@/compents/Num.vue";
 import PersonVue from "@/compents/Person.vue";
 
-
 export default {
     name: "App",
-    components: {NumVue, PersonVue},
+    components: {PersonVue, NumVue},
 
 }
 </script>
